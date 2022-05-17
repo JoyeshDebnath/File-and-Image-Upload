@@ -2,9 +2,11 @@ require("dotenv").config();
 require("express-async-errors");
 const ProductRouter = require("./routes/productRoutes");
 const express = require("express");
+const FileUpload = require("express-fileupload");
 const app = express();
 app.use(express.json());
 app.use(express.static("./public"));
+app.use(FileUpload());
 // database
 const connectDB = require("./db/connect");
 
